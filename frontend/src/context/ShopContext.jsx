@@ -41,6 +41,7 @@ const ShopContextProvider = (props) => {
         }
         setCartItems(cartData);
 
+        
         if (token) {
             try {
 
@@ -124,7 +125,7 @@ const ShopContextProvider = (props) => {
         }
     }
 
-    const getUserCart = async ( token ) => {
+    const getUserCart = async ( token ) => {//to avoid cart to be zero on refresh
         try {
             
             const response = await axios.post(backendUrl + '/api/cart/get',{},{headers:{token}})
